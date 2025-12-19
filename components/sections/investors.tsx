@@ -12,7 +12,7 @@ const INVESTORS = [
 
 const InvestorsSection = () => {
     return (
-        <section className="w-full bg-[#0A0A0A] py-32 px-4 overflow-hidden">
+        <section className="w-full bg-[#101010] py-48 px-4 overflow-hidden">
             <div className="max-w-[1440px] mx-auto px-8">
                 <span className="text-[11px] font-bold tracking-[0.2em] text-white/40 uppercase mb-24 block">
                     Investors

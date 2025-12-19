@@ -11,7 +11,7 @@ const ADVANTAGES = [
 
 const SolutionSection = () => {
     return (
-        <section className="w-full bg-[#0A0A0A] py-24 px-4 overflow-hidden text-white">
+        <section className="w-full bg-[#101010] py-24 px-4 overflow-hidden text-white">
             <div className="max-w-[1440px] mx-auto px-8 flex flex-col items-start">
                 {/* Section Header */}
                 <div className="flex items-center gap-4 mb-8">

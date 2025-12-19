@@ -7,7 +7,7 @@ import { PARTNER_LOGOS } from "@/constants";
 const HeroSection = () => {
     return (
         <section className="relative w-full pt-32 pb-10 px-4 flex justify-center">
-            <div className="relative w-full max-w-[1440px] aspect-[1440/800] rounded-[40px] overflow-hidden bg-[#0A0A0A] flex flex-col items-center justify-between py-16 px-8">
+            <div className="relative w-full max-w-[1440px] aspect-[1440/800] rounded-[40px] overflow-hidden bg-[#101010] flex flex-col items-center justify-between py-16 px-8">
                 {/* Background Layers */}
                 <div className="absolute inset-0 z-0">
                     {/* Grid/Lines Background */}

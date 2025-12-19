@@ -2,99 +2,145 @@
 
 import React, { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-
-gsap.registerPlugin(ScrollTrigger);
-
-const FEATURES = [
-    {
-        index: "01",
-        title: "Productized and profitable smart contracts",
-        image: "/images/features/1.svg",
-    },
-    {
-        index: "02",
-        title: "Tokens governed by privacy-preserving smart contracts",
-        image: "/images/features/2.svg",
-    },
-    {
-        index: "03",
-        title: "Compliant with global regulations and local legislation",
-        image: "/images/features/3.svg",
-    },
-    {
-        index: "04",
-        title: "Instant settlement of transactions",
-        image: "/images/features/4.svg",
-    },
-    {
-        index: "05",
-        title: "Bulletin boards with access to a single source of truth",
-        image: "/images/features/5.svg",
-    },
-];
+import { initFeaturesAnimation } from "@/animations/features";
 
 const FeaturesSection = () => {
     const component = useRef<HTMLDivElement>(null);
     const slider = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
-        let ctx = gsap.context(() => {
-            let panels = gsap.utils.toArray(".feature-card");
-            gsap.to(panels, {
-                xPercent: -100 * (panels.length - 1),
-                ease: "none",
-                scrollTrigger: {
-                    trigger: slider.current,
-                    pin: true,
-                    scrub: 1,
-                    snap: 1 / (panels.length - 1),
-                    end: () => "+=" + (slider.current?.offsetWidth || 0),
-                },
-            });
-        }, component);
+        const ctx = initFeaturesAnimation(
+            ".features-container",
+            ".features-slider"
+        );
         return () => ctx.revert();
     }, []);
 
     return (
-        <section ref={component} className="overflow-hidden bg-[#E5E5E5]">
-            <div ref={slider} className="flex h-screen w-[500%] items-center">
-                {FEATURES.map((feature) => (
-                    <div
-                        key={feature.index}
-                        className="feature-card flex h-full w-screen flex-shrink-0 flex-col items-center justify-center px-12 md:px-24"
-                    >
-                        <div className="flex w-full max-w-[1440px] items-center justify-between gap-10 md:gap-20">
-                            <div className="relative aspect-square w-full max-w-[400px] flex-shrink-0 md:max-w-[500px]">
+        <section className="w-full bg-[#E5E5E5]">
+            <div
+                ref={component}
+                className="features-container relative mx-auto h-screen max-w-[1440px] overflow-hidden"
+            >
+                {/* Static Baseline */}
+                <div className="absolute right-8 bottom-10 left-8 z-0 border-t border-black/10" />
+
+                <div ref={slider} className="features-slider flex h-full w-[300%]">
+                    {/* View 1: 01 & 02 */}
+                    <div className="relative h-full w-1/3 px-8 md:px-24">
+                        {/* Feature 01 */}
+                        <div className="absolute top-[15%] left-[5%] flex items-center gap-10 md:gap-20">
+                            <div className="relative aspect-square w-[240px] md:w-[400px]">
                                 <Image
-                                    src={feature.image}
-                                    alt={feature.title}
+                                    src="/images/features/1.svg"
+                                    alt="Feature 1"
                                     fill
                                     className="object-contain"
                                 />
                             </div>
-                            <div className="max-w-[500px] text-left">
-                                <span className="mb-4 block text-[12px] font-bold tracking-[0.2em] text-black opacity-60">
-                                    /{feature.index}
+                            <div className="max-w-[300px]">
+                                <span className="mb-2 block text-[10px] font-bold tracking-[0.2em] text-black/60">
+                                    /01
                                 </span>
-                                <h3 className="text-[28px] font-normal leading-[1.2] text-black md:text-[48px]">
-                                    {feature.title}
+                                <h3 className="text-[20px] font-normal leading-[1.2] text-black md:text-[28px]">
+                                    Productized and profitable smart contracts
+                                </h3>
+                            </div>
+                        </div>
+
+                        {/* Feature 02 */}
+                        <div className="absolute bottom-[20%] left-[45%] flex items-center gap-10 md:gap-20">
+                            <div className="relative aspect-square w-[240px] md:w-[400px]">
+                                <Image
+                                    src="/images/features/2.svg"
+                                    alt="Feature 2"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                            <div className="max-w-[300px]">
+                                <span className="mb-2 block text-[10px] font-bold tracking-[0.2em] text-black/60">
+                                    /02
+                                </span>
+                                <h3 className="text-[20px] font-normal leading-[1.2] text-black md:text-[28px]">
+                                    Tokens governed by privacy-preserving smart contracts
+                                </h3>
+                            </div>
+                        </div>
+
+                        {/* Bottom Label Start */}
+                        <span className="absolute bottom-10 left-8 text-[16px] font-bold uppercase tracking-[0.2em] text-black/60">
+                            The Dusk Network
+                        </span>
+                    </div>
+
+                    {/* View 2: 03 & 04 */}
+                    <div className="relative h-full w-1/3 px-8 md:px-24">
+                        {/* Feature 03 */}
+                        <div className="absolute top-[15%] left-[5%] flex items-center gap-10 md:gap-20">
+                            <div className="relative aspect-square w-[240px] md:w-[400px]">
+                                <Image
+                                    src="/images/features/3.svg"
+                                    alt="Feature 3"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                            <div className="max-w-[300px]">
+                                <span className="mb-2 block text-[10px] font-bold tracking-[0.2em] text-black/60">
+                                    /03
+                                </span>
+                                <h3 className="text-[20px] font-normal leading-[1.2] text-black md:text-[28px]">
+                                    Compliant with global regulations and local legislation
+                                </h3>
+                            </div>
+                        </div>
+
+                        {/* Feature 04 */}
+                        <div className="absolute bottom-[20%] left-[45%] flex items-center gap-10 md:gap-20">
+                            <div className="relative aspect-square w-[240px] md:w-[400px]">
+                                <Image
+                                    src="/images/features/4.svg"
+                                    alt="Feature 4"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                            <div className="max-w-[300px]">
+                                <span className="mb-2 block text-[10px] font-bold tracking-[0.2em] text-black/60">
+                                    /04
+                                </span>
+                                <h3 className="text-[20px] font-normal leading-[1.2] text-black md:text-[28px]">
+                                    Instant settlement of transactions
                                 </h3>
                             </div>
                         </div>
                     </div>
-                ))}
-            </div>
 
-            {/* Footer Info */}
-            <div className="fixed bottom-10 left-0 right-0 z-10 px-12 md:px-24">
-                <div className="mx-auto flex max-w-[1440px] items-end justify-between border-t border-black/10 pt-6">
-                    <span className="text-[10px] font-bold tracking-[0.2em] text-black uppercase opacity-60">
-                        IE Dusk Network
-                    </span>
-                    <div className="flex flex-col items-center gap-2">
-                        <span className="text-[10px] font-bold tracking-[0.2em] text-black uppercase">
+                    {/* View 3: 05 */}
+                    <div className="relative h-full w-1/3 px-8 md:px-24">
+                        {/* Feature 05 */}
+                        <div className="absolute top-[15%] left-[5%] flex items-center gap-10 md:gap-20">
+                            <div className="relative aspect-square w-[300px] md:w-[450px]">
+                                <Image
+                                    src="/images/features/5.svg"
+                                    alt="Feature 5"
+                                    fill
+                                    className="object-contain"
+                                />
+                            </div>
+                            <div className="max-w-[350px]">
+                                <span className="mb-2 block text-[10px] font-bold tracking-[0.2em] text-black/60">
+                                    /05
+                                </span>
+                                <h3 className="text-[24px] font-normal leading-[1.2] text-black md:text-[32px]">
+                                    Bulletin boards with access to a single source of truth
+                                </h3>
+                            </div>
+                        </div>
+
+                        {/* Bottom Label End */}
+                        <span className="absolute bottom-10 right-8 text-[16px] font-bold uppercase tracking-[0.2em] text-black/60">
                             Keep Scrolling
                         </span>
                     </div>

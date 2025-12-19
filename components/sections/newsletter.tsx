@@ -5,7 +5,7 @@ import Image from "next/image";
 
 const NewsletterSection = () => {
     return (
-        <section className="relative w-full bg-[#0A0A0A] py-32 px-4 overflow-hidden text-center text-white">
+        <section className="relative w-full bg-[#101010] h-screen py-32 px-4 overflow-hidden text-center text-white">
             {/* Background Curves */}
             <div className="absolute left-0 top-0 h-full w-1/3 opacity-40">
                 <Image
@@ -24,8 +24,8 @@ const NewsletterSection = () => {
                 />
             </div>
 
-            <div className="relative z-10 mx-auto max-w-[1440px]">
-                <h2 className="mb-12 text-[24px] font-normal leading-tight md:text-[40px]">
+            <div className="relative z-10 mx-auto max-w-[1440px] flex flex-col mt-48">
+                <h2 className="mb-12 text-[30px] font-normal leading-tight md:text-[40px]">
                     <span className="text-[#3E7FFF]">Subscribe</span> to our newsletter <br />
                     to get the latest Dusk updates
                 </h2>

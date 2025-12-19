@@ -42,8 +42,15 @@ const EXCHANGE_LOGOS = [
 
 const Footer = () => {
     return (
-        <footer className="w-full bg-[#0A0A0A] px-4 pb-12">
-            <div className="relative w-full max-w-[1440px] mx-auto bg-[#EBEBEB] rounded-[40px] overflow-hidden p-12 md:p-24 flex flex-col">
+        <footer className="w-full bg-[#101010] px-4 pb-12">
+            <div
+                className="relative w-full max-w-[1440px] mx-auto bg-[#EBEBEB] rounded-[40px] overflow-hidden p-12 md:p-24 flex flex-col"
+                style={{
+                    backgroundImage: "url('/images/footer/footer-bg.svg')",
+                    backgroundRepeat: "no-repeat",
+                    backgroundPosition: "bottom 81px center",
+                }}
+            >
                 {/* Top Section */}
                 <div className="flex flex-col lg:flex-row justify-between gap-20 relative z-10">
                     {/* Left: Headline */}
@@ -90,7 +97,7 @@ const Footer = () => {
                 </div>
 
                 {/* Newsletter Section */}
-                <div className="mt-24 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+                <div className="mb-100 mt-24 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
                     <p className="text-[14px] md:text-[16px] font-medium text-black">
                         Want to stay informed?
                     </p>
@@ -106,15 +113,8 @@ const Footer = () => {
                     </div>
                 </div>
 
-                {/* Large "DUSK" Background Text */}
-                <div className="absolute bottom-[-10%] left-0 right-0 flex justify-center pointer-events-none">
-                    <h1 className="text-[200px] md:text-[500px] font-bold text-black/[0.03] leading-none tracking-tight">
-                        DUSK
-                    </h1>
-                </div>
-
                 {/* Bottom Bar */}
-                <div className="mt-auto pt-24 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
+                <div className="mt-auto -mb-16 flex flex-col md:flex-row items-center justify-between gap-8 relative z-10">
                     <p className="text-[10px] font-bold tracking-[0.2em] text-black/40 uppercase">
                         © 2025 Dusk. All Rights Reserved.
                     </p>
