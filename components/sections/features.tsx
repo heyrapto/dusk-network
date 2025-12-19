@@ -23,7 +23,7 @@ const FeaturesSection = () => {
                 className="features-container relative mx-auto h-screen max-w-[1440px] overflow-hidden"
             >
                 {/* Static Baseline */}
-                <div className="absolute right-8 bottom-10 left-8 z-0 border-t border-black/10" />
+                <div className="absolute right-8 bottom-10 left-8 z-0 border-t border-black" />
 
                 <div ref={slider} className="features-slider flex h-full w-[300%]">
                     {/* View 1: 01 & 02 */}
@@ -69,7 +69,7 @@ const FeaturesSection = () => {
                         </div>
 
                         {/* Bottom Label Start */}
-                        <span className="absolute bottom-10 left-8 text-[16px] font-bold uppercase tracking-[0.2em] text-black/60">
+                        <span className="absolute bottom-16 left-10 text-[16px] font-bold uppercase tracking-[0.2em] text-black/60">
                             The Dusk Network
                         </span>
                     </div>
@@ -140,7 +140,7 @@ const FeaturesSection = () => {
                         </div>
 
                         {/* Bottom Label End */}
-                        <span className="absolute bottom-10 right-8 text-[16px] font-bold uppercase tracking-[0.2em] text-black/60">
+                        <span className="absolute bottom-16 right-8 text-[16px] font-bold uppercase tracking-[0.2em] text-black/60">
                             Keep Scrolling
                         </span>
                     </div>

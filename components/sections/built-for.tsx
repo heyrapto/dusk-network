@@ -26,7 +26,7 @@ const BuiltForSection = () => {
     return (
         <section className="w-full py-20 overflow-hidden max-w-[1440px] mx-auto">
             {/* Ticker Bar */}
-            <div className="border-t border-b border-black/10 py-3 mb-24 overflow-hidden flex whitespace-nowrap">
+            <div className="border-t border-b border-black py-3 mb-24 overflow-hidden flex whitespace-nowrap">
                 <div className="animate-marquee flex items-center gap-10">
                     {[...Array(10)].map((_, i) => (
                         <React.Fragment key={i}>
@@ -81,7 +81,7 @@ const BuiltForSection = () => {
                     </Link>
                 </div>
 
-                <div className="absolute -bottom-20 left-8 right-8 h-px bg-black/10"></div>
+                <div className="absolute -bottom-[20px] left-8 right-8 h-[0.5px] bg-black"></div>
             </div>
 
             <style jsx>{`
