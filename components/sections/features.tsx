@@ -3,34 +3,45 @@
 import React, { useLayoutEffect, useRef } from "react";
 import Image from "next/image";
 import { initFeaturesAnimation } from "@/animations/features";
+import gsap from "gsap"; // Assuming gsap is imported for matchMedia
 
 const FeaturesSection = () => {
     const component = useRef<HTMLDivElement>(null);
     const slider = useRef<HTMLDivElement>(null);
 
     useLayoutEffect(() => {
-        const ctx = initFeaturesAnimation(
-            ".features-container",
-            ".features-slider"
-        );
-        return () => ctx.revert();
+        // Only initialize animation on desktop
+        let ctx: gsap.Context | undefined;
+
+        const mm = gsap.matchMedia();
+        mm.add("(min-width: 768px)", () => {
+            ctx = initFeaturesAnimation(
+                ".features-container",
+                ".features-slider"
+            );
+        });
+
+        return () => {
+            ctx?.revert();
+            mm.kill();
+        };
     }, []);
 
     return (
-        <section className="w-full bg-[#E5E5E5]">
+        <section className="w-full bg-[#E2DFF9] py-20 md:py-0">
             <div
                 ref={component}
-                className="features-container relative mx-auto h-screen max-w-[1440px] overflow-hidden"
+                className="features-container relative mx-auto h-auto md:h-screen max-w-[1440px] md:overflow-hidden"
             >
-                {/* Static Baseline */}
-                <div className="absolute right-8 bottom-10 left-8 z-0 border-t border-black" />
+                {/* Static Baseline - Hide on Mobile */}
+                <div className="hidden md:block absolute right-8 bottom-10 left-8 z-0 border-t border-black" />
 
-                <div ref={slider} className="features-slider flex h-full w-[300%]">
-                    {/* View 1: 01 & 02 */}
-                    <div className="relative h-full w-1/3 px-8 md:px-24">
+                <div ref={slider} className="features-slider flex flex-col md:flex-row h-full w-full md:w-[300%]">
+                    {/* View 1: 01 & 02 (Vertical stack on mobile) */}
+                    <div className="relative h-auto md:h-full w-full md:w-1/3 px-8 md:px-24 py-10 md:py-0">
                         {/* Feature 01 */}
-                        <div className="absolute top-[15%] left-[5%] flex items-center gap-10 md:gap-20">
-                            <div className="relative aspect-square w-[240px] md:w-[400px]">
+                        <div className="md:absolute md:top-[15%] md:left-[5%] flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20 md:mb-0">
+                            <div className="relative aspect-square w-full max-w-[300px] md:max-w-[400px]">
                                 <Image
                                     src="/images/features/1.svg"
                                     alt="Feature 1"
@@ -38,7 +49,7 @@ const FeaturesSection = () => {
                                     className="object-contain"
                                 />
                             </div>
-                            <div className="max-w-[300px]">
+                            <div className="max-w-[300px] text-center md:text-left">
                                 <span className="mb-2 block text-[10px] font-bold tracking-[0.2em] text-black/60">
                                     /01
                                 </span>
@@ -49,8 +60,8 @@ const FeaturesSection = () => {
                         </div>
 
                         {/* Feature 02 */}
-                        <div className="absolute bottom-[20%] left-[45%] flex items-center gap-10 md:gap-20">
-                            <div className="relative aspect-square w-[240px] md:w-[400px]">
+                        <div className="md:absolute md:bottom-[20%] md:left-[45%] flex flex-col md:flex-row items-center gap-6 md:gap-20">
+                            <div className="relative aspect-square w-full max-w-[300px] md:max-w-[400px]">
                                 <Image
                                     src="/images/features/2.svg"
                                     alt="Feature 2"
@@ -58,7 +69,7 @@ const FeaturesSection = () => {
                                     className="object-contain"
                                 />
                             </div>
-                            <div className="max-w-[300px]">
+                            <div className="max-w-[300px] text-center md:text-left">
                                 <span className="mb-2 block text-[10px] font-bold tracking-[0.2em] text-black/60">
                                     /02
                                 </span>
@@ -68,17 +79,17 @@ const FeaturesSection = () => {
                             </div>
                         </div>
 
-                        {/* Bottom Label Start */}
-                        <span className="absolute bottom-16 left-10 text-[16px] font-bold uppercase tracking-[0.2em] text-black/60">
+                        {/* Bottom Label Start - Hide on Mobile */}
+                        <span className="hidden md:block absolute bottom-16 left-10 text-[16px] font-bold uppercase tracking-[0.2em] text-black/60">
                             The Dusk Network
                         </span>
                     </div>
 
                     {/* View 2: 03 & 04 */}
-                    <div className="relative h-full w-1/3 px-8 md:px-24">
+                    <div className="relative h-auto md:h-full w-full md:w-1/3 px-8 md:px-24 py-10 md:py-0">
                         {/* Feature 03 */}
-                        <div className="absolute top-[15%] left-[5%] flex items-center gap-10 md:gap-20">
-                            <div className="relative aspect-square w-[240px] md:w-[400px]">
+                        <div className="md:absolute md:top-[15%] md:left-[5%] flex flex-col md:flex-row items-center gap-6 md:gap-20 mb-20 md:mb-0">
+                            <div className="relative aspect-square w-full max-w-[300px] md:max-w-[400px]">
                                 <Image
                                     src="/images/features/3.svg"
                                     alt="Feature 3"
@@ -86,7 +97,7 @@ const FeaturesSection = () => {
                                     className="object-contain"
                                 />
                             </div>
-                            <div className="max-w-[300px]">
+                            <div className="max-w-[300px] text-center md:text-left">
                                 <span className="mb-2 block text-[10px] font-bold tracking-[0.2em] text-black/60">
                                     /03
                                 </span>
@@ -97,8 +108,8 @@ const FeaturesSection = () => {
                         </div>
 
                         {/* Feature 04 */}
-                        <div className="absolute bottom-[20%] left-[45%] flex items-center gap-10 md:gap-20">
-                            <div className="relative aspect-square w-[240px] md:w-[400px]">
+                        <div className="md:absolute md:bottom-[20%] md:left-[45%] flex flex-col md:flex-row items-center gap-6 md:gap-20">
+                            <div className="relative aspect-square w-full max-w-[300px] md:max-w-[400px]">
                                 <Image
                                     src="/images/features/4.svg"
                                     alt="Feature 4"
@@ -106,7 +117,7 @@ const FeaturesSection = () => {
                                     className="object-contain"
                                 />
                             </div>
-                            <div className="max-w-[300px]">
+                            <div className="max-w-[300px] text-center md:text-left">
                                 <span className="mb-2 block text-[10px] font-bold tracking-[0.2em] text-black/60">
                                     /04
                                 </span>
@@ -118,10 +129,10 @@ const FeaturesSection = () => {
                     </div>
 
                     {/* View 3: 05 */}
-                    <div className="relative h-full w-1/3 px-8 md:px-24">
+                    <div className="relative h-auto md:h-full w-full md:w-1/3 px-8 md:px-24 py-10 md:py-0">
                         {/* Feature 05 */}
-                        <div className="absolute top-[15%] left-[5%] flex items-center gap-10 md:gap-20">
-                            <div className="relative aspect-square w-[300px] md:w-[450px]">
+                        <div className="md:absolute md:top-[15%] md:left-[5%] flex flex-col md:flex-row items-center gap-6 md:gap-20">
+                            <div className="relative aspect-square w-full max-w-[300px] md:max-w-[450px]">
                                 <Image
                                     src="/images/features/5.svg"
                                     alt="Feature 5"
@@ -129,7 +140,7 @@ const FeaturesSection = () => {
                                     className="object-contain"
                                 />
                             </div>
-                            <div className="max-w-[350px]">
+                            <div className="max-w-[350px] text-center md:text-left">
                                 <span className="mb-2 block text-[10px] font-bold tracking-[0.2em] text-black/60">
                                     /05
                                 </span>
@@ -139,8 +150,8 @@ const FeaturesSection = () => {
                             </div>
                         </div>
 
-                        {/* Bottom Label End */}
-                        <span className="absolute bottom-16 right-8 text-[16px] font-bold uppercase tracking-[0.2em] text-black/60">
+                        {/* Bottom Label End - Hide on Mobile */}
+                        <span className="hidden md:block absolute bottom-16 right-8 text-[16px] font-bold uppercase tracking-[0.2em] text-black/60">
                             Keep Scrolling
                         </span>
                     </div>

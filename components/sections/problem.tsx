@@ -15,7 +15,7 @@ const ProblemSection = () => {
             <div className="max-w-[1440px] mx-auto px-8 flex flex-col items-start">
                 {/* Section Header */}
                 <div className="flex items-center gap-4 mb-8">
-                    <div className="w-10 h-[1px] bg-black"></div>
+                    <div className="w-10 h-px bg-black"></div>
                     <span className="text-[11px] font-bold tracking-[0.2em] text-black uppercase">The Problem</span>
                 </div>
 
@@ -26,7 +26,7 @@ const ProblemSection = () => {
 
                 <div className="w-full grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
                     {/* Illustration */}
-                    <div className="relative w-full aspect-[4/3] max-w-[500px]">
+                    <div className="relative w-full aspect-4/3 max-w-[500px]">
                         <Image
                             src="/images/problem-landscape.svg"
                             alt="Problem Landscape Illustration"
@@ -39,7 +39,7 @@ const ProblemSection = () => {
                     <div className="flex flex-col gap-10">
                         {PAIN_POINTS.map((point, index) => (
                             <div key={index} className="flex items-start gap-4 group">
-                                <div className="mt-1.5 flex-shrink-0">
+                                <div className="mt-1.5 shrink-0">
                                     <Image
                                         src="/images/mission/star.svg"
                                         alt="star"

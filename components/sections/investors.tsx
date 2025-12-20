@@ -25,7 +25,7 @@ const InvestorsSection = () => {
                                 {investor}
                             </h2>
                             {index < INVESTORS.length - 1 && (
-                                <div className="relative w-8 h-8 md:w-12 md:h-12 flex-shrink-0">
+                                <div className="relative w-8 h-8 md:w-12 md:h-12 shrink-0">
                                     <Image
                                         src="/images/mission/star.svg"
                                         alt="separator"

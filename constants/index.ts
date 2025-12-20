@@ -24,10 +24,21 @@ export const NAV_LINKS: NavLink[] = [
     {
         label: "DEVELOPERS",
         href: "#",
+        dropdownItems: [
+            { label: "WHITEPAPER", href: "#", icon: true },
+            { label: "GITHUB", href: "#", icon: true },
+            { label: "BUILD ON DUSK", href: "#", icon: true },
+        ],
     },
     {
         label: "COMMUNITY",
         href: "#",
+        dropdownItems: [
+            { label: "TWITTER", href: "#", icon: true },
+            { label: "DISCORD", href: "#", icon: true },
+            { label: "FORUM", href: "#", icon: true },
+            { label: "YOUTUBE", href: "#", icon: true },
+        ],
     },
     {
         label: "ABOUT",

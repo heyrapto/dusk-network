@@ -44,7 +44,7 @@ const Footer = () => {
     return (
         <footer className="w-full bg-[#101010] px-4 pb-12">
             <div
-                className="relative w-full max-w-[1440px] mx-auto bg-[#EBEBEB] rounded-[40px] overflow-hidden p-12 md:p-24 flex flex-col"
+                className="relative w-full max-w-[1440px] mx-auto bg-[#E2DFF9] rounded-[40px] overflow-hidden p-12 md:p-24 flex flex-col"
                 style={{
                     backgroundImage: "url('/images/footer/footer-bg.svg')",
                     backgroundRepeat: "no-repeat",

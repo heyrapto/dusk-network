@@ -14,8 +14,8 @@ const Navbar = () => {
 
     return (
         <>
-            <nav className="flex justify-center w-full px-4 pt-6 z-50 relative">
-                <div className="flex items-center justify-between w-full max-w-[1440px] h-16 px-8 rounded-full bg-white/10 backdrop-blur-md border border-white/10 group/nav ring-1 ring-white/20">
+            <nav className="flex justify-center w-full md:px-4 px-0 md:pt-6 pt-0 z-50 md:relative fixed">
+                <div className="flex items-center justify-between w-full max-w-[1440px] md:h-16 h-20 md:px-8 px-4 md:rounded-full bg-[#E2DFF9] border border-white/10 group/nav ring-1 ring-white/20">
                     {/* Logo */}
                     <Link href="/" className="flex items-center">
                         <Image
@@ -23,7 +23,7 @@ const Navbar = () => {
                             alt="Dusk Logo"
                             width={120}
                             height={29}
-                            className="h-7 w-auto"
+                            className="md:h-7 h-5 w-auto"
                         />
                     </Link>
 
@@ -72,7 +72,7 @@ const Navbar = () => {
                             <input
                                 type="text"
                                 placeholder="Search"
-                                className="bg-white rounded-full py-2 pl-6 pr-10 w-48 text-[11px] font-medium focus:outline-none focus:ring-1 focus:ring-blue-400/30 transition-all border border-gray-200/50 shadow-sm placeholder:text-gray-400 placeholder:uppercase placeholder:tracking-widest"
+                                className="bg-white rounded-full py-2 pl-6 pr-10 w-32 focus:w-64 text-[11px] font-medium focus:outline-none focus:ring-1 focus:ring-blue-400/30 transition-all duration-300 border border-gray-200/50 shadow-sm placeholder:text-gray-400 placeholder:uppercase placeholder:tracking-widest"
                             />
                             <FiSearch className="absolute right-4 top-1/2 -translate-y-1/2 text-gray-400 group-focus-within:text-black transition-colors" />
                         </div>
@@ -80,7 +80,7 @@ const Navbar = () => {
 
                     {/* Mobile Menu Toggle */}
                     <button
-                        className="md:hidden text-black p-2 bg-white/20 rounded-full"
+                        className="md:hidden text-black "
                         onClick={() => setIsMobileNavOpen(true)}
                     >
                         <svg

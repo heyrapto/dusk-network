@@ -15,7 +15,7 @@ const SolutionSection = () => {
             <div className="max-w-[1440px] mx-auto px-8 flex flex-col items-start">
                 {/* Section Header */}
                 <div className="flex items-center gap-4 mb-8">
-                    <div className="w-10 h-[1px] bg-white/40"></div>
+                    <div className="w-10 h-px bg-white/40"></div>
                     <span className="text-[11px] font-bold tracking-[0.2em] text-white/60 uppercase">The Solution</span>
                 </div>
 
@@ -39,7 +39,7 @@ const SolutionSection = () => {
                     <div className="lg:order-1 flex flex-col gap-10">
                         {ADVANTAGES.map((advantage, index) => (
                             <div key={index} className="flex items-start gap-4 group">
-                                <div className="mt-1.5 flex-shrink-0">
+                                <div className="mt-1.5 shrink-0">
                                     <Image
                                         src="/images/light-star.svg"
                                         alt="star"
