@@ -37,7 +37,7 @@ const HeroSection = () => {
                     {/* Sun/Light Source */}
                     <div
                         ref={sunRef}
-                        className="hero-sun absolute bottom-20 md:bottom-20 left-1/2 -translate-x-1/2 w-full max-w-[200px] md:max-w-[800px] aspect-square"
+                        className="hero-sun absolute bottom-20 md:bottom-52 left-1/2 -translate-x-1/2 w-full max-w-[200px] md:max-w-[600px] aspect-square"
                     >
                         <Image
                             src="/images/hero/sun.svg"
