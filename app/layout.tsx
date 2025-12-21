@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "Welcome • Dusk",
-  description: "Built usung create next app",
+  description: "Built using create next app",
 };
 
 export default function RootLayout({
